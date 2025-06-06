@@ -64,6 +64,7 @@ def webServer(port=13331):
             outputdata = b"HTTP/1.1 404 Not Found\r\n"
             outputdata += b"Server: Python server\r\n"
             outputdata += b"Content-Type: text/html\r\n"
+            outputdata += b"Connection: keep-alive\r\n"
             outputdata += b"\r\n"
             outputdata += b"<!DOCTYPE html><html lang='en'><head><meta charset='UTF-8'><title>404 Not Found</title></head>"
             outputdata += b"<body><p>404 Not Found</p></body></html>"
