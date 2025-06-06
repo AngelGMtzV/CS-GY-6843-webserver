@@ -65,7 +65,8 @@ def webServer(port=13331):
             outputdata += b"Server: Python server\r\n"
             outputdata += b"Content-Type: text/html\r\n"
             outputdata += b"\r\n"
-            outputdata += b"<html><body><h1>404 Not Found</h1></body></html>"
+            outputdata += b"<!DOCTYPE html><html lang='en'><head><meta charset='UTF-8'><title>HelloWorld</title></head>"
+            outputdata += b"<body><p>404 Not Found</p></body></html>"
 
             connectionSocket.send(outputdata)
             # Fill in end
