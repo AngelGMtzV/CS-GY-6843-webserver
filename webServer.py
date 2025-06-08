@@ -21,7 +21,7 @@ def webServer(port=13331):
         connectionSocket, addr = serverSocket.accept()  # Fill in start -are you accepting connections?   #Fill in end
 
         try:
-            message = "GET /helloworld.html HTTP/1.1"  # Fill in start -a client is sending you a message   #Fill in end
+            message = connectionSocket.recv(1024)  # Fill in start -a client is sending you a message   #Fill in end
             filename = message.split()[1]
 
             # opens the client requested file.
@@ -62,7 +62,10 @@ def webServer(port=13331):
             # Remember the format you used in the try: block!
             # Fill in start
             outputdata = b"HTTP/1.1 404 Not Found\r\n"
+            outputdata += b"Content-Type: text/html; charset=UTF-8\r\n"
             outputdata += b"\r\n"
+            outputdata += (b"<!DOCTYPE html><html lang='en'><head><meta charset='UTF-8'><title>404 Not Found</title>"
+                           b"</head><body><h1>404 Not Found</h1></body></html>")
 
             connectionSocket.send(outputdata)
             # Fill in end
