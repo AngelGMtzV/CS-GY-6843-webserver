@@ -62,6 +62,7 @@ def webServer(port=13331):
             # Remember the format you used in the try: block!
             # Fill in start
             outputdata = b"HTTP/1.1 404 Not Found\r\n"
+            outputdata += b"Connection: close\r\n"
             outputdata += b"\r\n"
 
             connectionSocket.send(outputdata)
